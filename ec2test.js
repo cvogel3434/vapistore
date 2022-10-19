@@ -62,7 +62,7 @@ var setupgitfun=()=>{
   //exec(`sudo yum install git -y`,(err,stdout,stderr)=>{
     exec(`git init`,{cwd:'store'},(err,stdout,stderr)=>{
       testvar.gitinit={err:err,stdout:stdout,stderr:stderr};
-      exec(`git remote set-url origin git@github.com:cvogel3434/vapistoredatatest.git`,{cwd:'store'},(err,stdout,stderr)=>{
+      exec(`git remote add origin git@github.com:cvogel3434/vapistoredatatest.git`,{cwd:'store'},(err,stdout,stderr)=>{
         testvar.gitremote={err:err,stdout:stdout,stderr:stderr};
         exec(`git branch -M main`,{cwd:'store'},(err,stdout,stderr)=>{
           testvar.gitbranch={err:err,stdout:stdout,stderr:stderr};
@@ -78,4 +78,4 @@ var setupgitfun=()=>{
   //});
 }
 
-console.log('yet another test');
+console.log('hopeful');
