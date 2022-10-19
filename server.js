@@ -14,9 +14,9 @@ var {AppStoreRouter,AppStore} = require('./bin/vapi-store.js');
 
 var {vapilogger,arequestlog}=require('./logger/db/logger-db.js');
 
-var ec2git = require('./ec2test.js');
+//var ec2git = require('./ec2test.js');
 
-ec2git.testgitfun();
+//ec2git.testgitfun();
 /*exec('sh gitsetup.sh',(err,stdout,stderr)=>{
   fs.writeFileSync('gitresult.json',JSON.stringify({err:err,stdout:stdout,stderr:stderr}),'utf8');
 });
