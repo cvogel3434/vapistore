@@ -1,23 +1,33 @@
 
 
 var {NEDBconnect}=require('./bin/storage/nedb-connector.js');
-
+var fs = require('fs');
 var testvar = {}
 
+var result = {};
 
 var SETUPvapistoregitrepo=()=>{
-  exec('git config --global user.name cvogel3434' && 'git config --global user.email christianv@vogelheating.com',(err,stdout,stderr)=>{
-    exec('git init',(err,stdout,stderr)=>{
-      exec('git remote add origin git@github.com:cvogel3434/vapistore.git',(err,stdout,stderr)=>{
-        exec('git pull origin main',(err,stdout,stderr)=>{
-          exec('git reset --hard origin/main',(err,stdout,stderr)=>{
-            exec('git pull origin main',(err,stdout,stderr)=>{
+  //exec('git config --global user.name cvogel3434' && 'git config --global user.email christianv@vogelheating.com',(err,stdout,stderr)=>{
+    exec(`git init`,(err,stdout,stderr)=>{
+      console.log(stdout)
+      /*
+      result.init = {err:err,stdout:stdout,stderr:stderr};
+      exec(`git remote add origin git@github.com:cvogel3434/vapistore.git`,(err,stdout,stderr)=>{
+        result.remote = {err:err,stdout:stdout,stderr:stderr};
+        exec(`git pull origin main`,(err,stdout,stderr)=>{
+          result.pull = {err:err,stdout:stdout,stderr:stderr};
+          exec(`git reset --hard origin/main`,(err,stdout,stderr)=>{
+            result.reset = {err:err,stdout:stdout,stderr:stderr};
+            exec(`git pull origin main`,(err,stdout,stderr)=>{
+              result.pull2 = {err:err,stdout:stdout,stderr:stderr};
+              fs.writeFileSync('gitresult.json',JSON.stringify(result),'utf8');
             });
           });
         });
       });
+      */
     });
-  });
+  //});
 }
 var testgitfun=()=>{
   var teststore = require('./store/storemaps/storemap.json').store.apps.VMT.wos;
