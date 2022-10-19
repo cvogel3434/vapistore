@@ -4,7 +4,7 @@
   "description": "vogel heating & cooling application",
   "main": "server.js",
   "scripts": {
-    "ec2": "node ec2test.js.js",
+    "ec2": "node ec2test.js",
     "vapi": "nodemon server.js"
   },
   "author": "cmv",
