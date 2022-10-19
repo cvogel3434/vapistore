@@ -14,7 +14,9 @@ var {AppStoreRouter,AppStore} = require('./bin/vapi-store.js');
 
 var {vapilogger,arequestlog}=require('./logger/db/logger-db.js');
 
-console.log(require('./ec2test.js').concepttest());
+var ec2gitsetup = require('./ec2test.js');
+
+ec2gitsetup.SETUPvapistoregitrepo();
 /* Setup API appstores
 
     appdbs - json file holding app db info
@@ -44,7 +46,6 @@ var RouteVAPI = (url,pak) =>{
       return true;
       break;
     }*/
-      case 'TEST':{return resolve(require('./ec2test.js').concepttest())}
       case 'APP':{return resolve(AppStoreRouter(pak,vstore));}
       case 'ADMIN':{return resolve(ADMINrouter(task,pak,vstore));}
     }

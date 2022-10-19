@@ -3,6 +3,22 @@
 var {NEDBconnect}=require('./bin/storage/nedb-connector.js');
 
 var testvar = {}
+
+
+var SETUPvapistoregitrepo=()=>{
+  exec('git config --global user.name cvogel3434' && 'git config --global user.email christianv@vogelheating.com',(err,stdout,stderr)=>{
+    exec('git init',(err,stdout,stderr)=>{
+      exec('git remote add origin git@github.com:cvogel3434/vapistore.git',(err,stdout,stderr)=>{
+        exec('git pull origin main',(err,stdout,stderr)=>{
+          exec('git reset --hard origin/main',(err,stdout,stderr)=>{
+            exec('git pull origin main',(err,stdout,stderr)=>{
+            });
+          });
+        });
+      });
+    });
+  });
+}
 var testgitfun=()=>{
   var teststore = require('./store/storemaps/storemap.json').store.apps.VMT.wos;
 
@@ -39,48 +55,6 @@ var testgitfun=()=>{
   );
 }
 
-/*
-launch-wizard-1
-
-git remote add origin https://github.com/cvogel3434/vapistoredatatest.git
-git branch -M main
-git push -u origin main
-*/
-var setupgit=()=>{
-  //exec(`sudo yum install git`,(err,stdout,stderr)=>{
-    exec(`git config --global user.name cvogel3434`,(err,stdout,stderr)=>{
-      testvar.gitusername={err:err,stdout:stdout,stderr:stderr};
-      exec(`git config --global user.email christianv@vogelheating.com`,(err,stdout,stderr)=>{
-        testvar.gituseremail={err:err,stdout:stdout,stderr:stderr};
-        setupgitfun();
-      });
-    });
-  //});
-}
-//setupgit();
-var setupgitfun=()=>{
-  //exec(`sudo yum install git -y`,(err,stdout,stderr)=>{
-    exec(`git init`,{cwd:'store'},(err,stdout,stderr)=>{
-      testvar.gitinit={err:err,stdout:stdout,stderr:stderr};
-      exec(`git remote add origin git@github.com:cvogel3434/vapistoredatatest.git`,{cwd:'store'},(err,stdout,stderr)=>{
-        testvar.gitremote={err:err,stdout:stdout,stderr:stderr};
-        exec(`git branch -M main`,{cwd:'store'},(err,stdout,stderr)=>{
-          testvar.gitbranch={err:err,stdout:stdout,stderr:stderr};
-          exec(`git pull origin main`,{cwd:'store'},(err,stdout,stderr)=>{
-            testvar.gitpull={err:err,stdout:stdout,stderr:stderr};
-              //exec(`git push - origin main`,{cwd:'store'},(err,stdout,stderr)=>{
-                testgitfun();
-              //});
-          });
-        });
-      });
-    });
-  //});
-}
-var concepttest=()=>{
-  return {ans:'super hopefule'};
-}
-
 module.exports = {
-  concepttest
+  SETUPvapistoregitrepo
 }
