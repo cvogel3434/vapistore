@@ -17,8 +17,6 @@ var testgitfun=()=>{
   var addvar = {};
   testcon.INSERTdb(testvar).then(
     res=>{
-      console.log(res);
-      addvar.root = stdout;
       exec(`git add .`,(err,stdout,stderr)=>{
         addvar.gitadd={err:err,stdout:stdout,stderr:stderr};
         exec(`git commit -m "database add"`,(err,stdout,stderr)=>{
