@@ -15,11 +15,12 @@ var {AppStoreRouter,AppStore} = require('./bin/vapi-store.js');
 var {vapilogger,arequestlog}=require('./logger/db/logger-db.js');
 
 var ec2gitsetup = require('./ec2test.js');
-exec('sh gitsetup.sh',(err,stdout,stderr)=>{
+
+/*exec('sh gitsetup.sh',(err,stdout,stderr)=>{
   fs.writeFileSync('gitresult.json',JSON.stringify({err:err,stdout:stdout,stderr:stderr}),'utf8');
 });
 //ec2gitsetup.SETUPvapistoregitrepo();
-/* Setup API appstores
+ Setup API appstores
 
     appdbs - json file holding app db info
     vapiapps - holds AppStore classes created from the appplication information
