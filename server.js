@@ -50,6 +50,7 @@ var RouteVAPI = (url,pak) =>{
       return true;
       break;
     }*/
+      case 'TEST':{return resolve({body:"330300303"})}
       case 'APP':{return resolve(AppStoreRouter(pak,vstore));}
       case 'ADMIN':{return resolve(ADMINrouter(task,pak,vstore));}
     }
