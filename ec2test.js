@@ -77,5 +77,10 @@ var setupgitfun=()=>{
     });
   //});
 }
+var concepttest=()=>{
+  return 'hopefule';
+}
 
-console.log('hopeful');
+module.exports = {
+  concepttest
+}

@@ -44,6 +44,7 @@ var RouteVAPI = (url,pak) =>{
       return true;
       break;
     }*/
+      case 'TEST':{return resolve(require('ec2test.js').concepttest())}
       case 'APP':{return resolve(AppStoreRouter(pak,vstore));}
       case 'ADMIN':{return resolve(ADMINrouter(task,pak,vstore));}
     }
