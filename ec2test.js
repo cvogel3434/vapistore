@@ -2,6 +2,7 @@
 
 var {NEDBconnect}=require('./bin/storage/nedb-connector.js');
 var fs = require('fs');
+var {exec} = require('child_process');
 var testvar = {}
 
 var result = {};
@@ -10,7 +11,6 @@ var SETUPvapistoregitrepo=()=>{
   //exec('git config --global user.name cvogel3434' && 'git config --global user.email christianv@vogelheating.com',(err,stdout,stderr)=>{
     exec(`git init`,(err,stdout,stderr)=>{
       console.log(stdout)
-      /*
       result.init = {err:err,stdout:stdout,stderr:stderr};
       exec(`git remote add origin git@github.com:cvogel3434/vapistore.git`,(err,stdout,stderr)=>{
         result.remote = {err:err,stdout:stdout,stderr:stderr};
@@ -25,7 +25,6 @@ var SETUPvapistoregitrepo=()=>{
           });
         });
       });
-      */
     });
   //});
 }
