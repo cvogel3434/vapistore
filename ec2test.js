@@ -14,13 +14,16 @@ var SETUPvapistoregitrepo=()=>{
       result.init = {err:err,stdout:stdout,stderr:stderr};
       exec(`git remote add origin git@github.com:cvogel3434/vapistore.git`,(err,stdout,stderr)=>{
         result.remote = {err:err,stdout:stdout,stderr:stderr};
-        exec(`git pull origin main`,(err,stdout,stderr)=>{
-          result.pull = {err:err,stdout:stdout,stderr:stderr};
-          exec(`git reset --hard origin/main`,(err,stdout,stderr)=>{
-            result.reset = {err:err,stdout:stdout,stderr:stderr};
-            exec(`git pull origin main`,(err,stdout,stderr)=>{
-              result.pull2 = {err:err,stdout:stdout,stderr:stderr};
-              fs.writeFileSync('gitresult.json',JSON.stringify(result),'utf8');
+        exec(`git branch -M main`,(err,stdout,stderr)=>{
+          result.branch = {err:err,stdout:stdout,stderr:stderr};
+          exec(`git pull origin main`,(err,stdout,stderr)=>{
+            result.pull = {err:err,stdout:stdout,stderr:stderr};
+            exec(`git reset --hard origin/main`,(err,stdout,stderr)=>{
+              result.reset = {err:err,stdout:stdout,stderr:stderr};
+              exec(`git pull origin main`,(err,stdout,stderr)=>{
+                result.pull2 = {err:err,stdout:stdout,stderr:stderr};
+                fs.writeFileSync('gitresult.json',JSON.stringify(result),'utf8');
+              });
             });
           });
         });
