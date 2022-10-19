@@ -7,20 +7,21 @@ var testvar = {}
 
 var result = {};
 
+
 var SETUPvapistoregitrepo=()=>{
   //exec('git config --global user.name cvogel3434' && 'git config --global user.email christianv@vogelheating.com',(err,stdout,stderr)=>{
-    exec(`git init`,(err,stdout,stderr)=>{
+    exec(`git init`,(err,stdout,stderr)=>{ //works
       console.log(stdout)
       result.init = {err:err,stdout:stdout,stderr:stderr};
-      exec(`git remote add origin git@github.com:cvogel3434/vapistore.git`,(err,stdout,stderr)=>{
+      exec(`git remote add origin git@github.com:cvogel3434/vapistore.git`,(err,stdout,stderr)=>{ //works
         result.remote = {err:err,stdout:stdout,stderr:stderr};
         setTimeout(()=>{
-          exec(`git pull origin main`,(err,stdout,stderr)=>{
+          exec(`git pull origin main`,(err,stdout,stderr)=>{ //not working
             result.pull = {err:err,stdout:stdout,stderr:stderr};
             setTimeout(()=>{
-              exec(`git reset --hard origin/main`,(err,stdout,stderr)=>{
+              exec(`git reset --hard origin/main`,(err,stdout,stderr)=>{ //not working
                 result.reset = {err:err,stdout:stdout,stderr:stderr};
-                exec(`git pull origin main`,(err,stdout,stderr)=>{
+                exec(`git pull origin main`,(err,stdout,stderr)=>{ //not working
                   result.pull2 = {err:err,stdout:stdout,stderr:stderr};
                   fs.writeFileSync('gitresult.json',JSON.stringify(result),'utf8');
                 });
