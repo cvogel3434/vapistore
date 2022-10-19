@@ -78,7 +78,7 @@ var setupgitfun=()=>{
   //});
 }
 var concepttest=()=>{
-  return 'hopefule';
+  return {ans:'hopefule'};
 }
 
 module.exports = {
