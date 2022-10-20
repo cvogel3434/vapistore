@@ -3,7 +3,7 @@ const path = require('path'),
       fs = require('fs'),
       http = require('http');
 var {exec} = require('child_process');
-
+var {NEDBconnect}=require('./bin/storage/nedb-connector.js');
 var port = 8080; //port for local host
 
 var reqque=[];
@@ -14,10 +14,24 @@ var {AppStoreRouter,AppStore} = require('./bin/vapi-store.js');
 
 var {vapilogger,arequestlog}=require('./logger/db/logger-db.js');
 
-var ec2git = require('./ec2test.js');
+var testgitfun=()=>{
+  var teststore = require('./store/storemaps/storemap.json').store.apps.VMT.wos;
+  var testcon = new NEDBconnect({filename:path.join(__dirname,teststore.filename)},teststore.ensure);
+  testcon.docs.loadDatabase();
+  testcon.INSERTdb({id:85}).then(
+    res=>{
+      console.log('HERE')
+      exec(`git add .`,(err,stdout,stderr)=>{
+        exec(`git commit -m "database add"`,(err,stdout,stderr)=>{
+          exec(`git push origin main`,(err,stdout,stderr)=>{
 
-ec2git.testgitfun();
-
+          });
+        });
+      });
+    }
+  );
+}
+testgitfun();
 var vstore = LOADstoremap(path.join(__dirname,'store/apps'),path.join(__dirname,'store/storemaps/storemap.json'));
 
 var RouteVAPI = (url,pak) =>{
